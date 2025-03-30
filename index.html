@@ -22,36 +22,6 @@
             backdrop-filter: blur(4px);
         }
 
-
-        /* Footer Section */
-        .footer {
-            width: 100%;
-            background-color: #0077cc; /* Sky blue color */
-            color: white;
-            text-align: center;
-            padding: 2px 0;
-            position: fixed;
-            bottom: -12px;
-            left: 0;
-            font-size: 10px;
-            font-weight: bold
-        }
-
-        /* Ensure navbar doesn't overlap when menu opens */
-body.menu-open {
-    overflow: hidden; /* Prevent background scrolling */
-}
-
-.navbar {
-    transition: top 0.3s ease-in-out;
-}
-
-/* Shift navbar up when menu opens */
-body.menu-open .navbar {
-    top: -100px;
-}
-
-
         .navbar {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
@@ -194,7 +164,7 @@ body.menu-open .navbar {
             text-align: center;
             color: rgb(247, 0, 0);
             z-index: 1;
-            margin-top: -50px;
+            margin-top: -70px;
         }
 
         .welcome-container h1 {
@@ -236,11 +206,11 @@ body.menu-open .navbar {
         /* Responsive Welcome Section */
 @media (max-width: 768px) {
     .welcome-container h1 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .welcome-container p {
-        font-size: 08px;
+        font-size: 16px;
     }
 
     .button {
@@ -284,10 +254,10 @@ body.menu-open .navbar {
 
 .mobile-nav {
     position: fixed;
-    top: 50;
+    top: 0;
     left: -300px; /* Initially hidden */
     width: 300px;
-    height: 50vh;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.75); /* Darker for better contrast */
     backdrop-filter: blur(12px); /* Stronger blur */
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.8); /* Deep shadow */
@@ -454,7 +424,7 @@ body.menu-open .navbar {
         }
 
         .nav-title {
-            font-size: 27px;
+            font-size: 30px;
             font-weight: bolder;
             color: rgb(112, 245, 227);
             text-shadow: 2px 2px 4px rgba(9, 0, 0, 0.841);
@@ -496,7 +466,6 @@ body.menu-open .navbar {
             position: fixed;
             top: 0;
             left: -100%;
-            font-size: xx-small;
             width: 100%;
             height: 100vh;
             background: rgba(0, 0, 0, 0.8);
@@ -553,15 +522,16 @@ body.menu-open .navbar {
     <div class="navbar">
         <div class="nav-title"> WATER FOOT-PRINT <br> CALCULATOR</div>
         <div class="nav-links">
-         
+            <a href="#home">🏠 Home</a>
+            <a href="about.html">ℹ️ About</a>
+            <a href="sdg_6.html">🌍 SDG 6</a>
+            <a href="calculator.html">🧮 Calculator</a>
+            <a href="resources.html">📚 Resources</a>
+            <a href="save.html">💧 How to Save Water</a>
         </div>
         <div class="hamburger" onclick="openMenu()">
             <img src="https://cdn-icons-png.flaticon.com/512/8867/8867520.png" alt="Menu">
         </div>
-    </div>
-
-    <div class="footer">
-        &copy; 2025 Water Footprint Calculator |SARIT SRIMANI| Save Water, Save Life
     </div>
 
     <!-- Mobile Nav Menu -->
@@ -569,7 +539,7 @@ body.menu-open .navbar {
         <span class="close-btn" onclick="closeMenu()">✖</span>
         <a href="#home" onclick="closeMenu()">🏠 Home</a>
         <a href="about.html" onclick="closeMenu()">ℹ️ About</a>
-        <a href="sdg6.html" onclick="closeMenu()">🌍 SDG 6</a>
+        <a href="sdg_6.html" onclick="closeMenu()">🌍 SDG 6</a>
         <a href="calculator.html" onclick="closeMenu()">🧮 Calculator</a>
         <a href="resources.html" onclick="closeMenu()">📚 Resources</a>
         <a href="save.html" onclick="closeMenu()">💧 How to Save Water</a>
@@ -592,19 +562,6 @@ body.menu-open .navbar {
                 closeMenu();
             }
         });
-
-
-
-        function openMenu() {
-    document.getElementById("mobileNav").style.left = "0";
-    document.body.classList.add("menu-open"); // Hide navbar when menu opens
-}
-
-function closeMenu() {
-    document.getElementById("mobileNav").style.left = "-100%";
-    document.body.classList.remove("menu-open"); // Show navbar when menu closes
-}
-
     </script>
 
 </body>
