@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #2980b9, #6dd5ed);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .droplet-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .droplet {
+            position: absolute;
+            top: -50px;
+            width: 10px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) scaleX(1); opacity: 1; }
+            100% { transform: translateY(100vh) scaleX(0.5); opacity: 0; }
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(0, 0, 102, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #16a085;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .clock-container {
+            margin: 20px auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 6px solid white;
+            position: relative;
+        }
+
+        .clock-hand {
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background: red;
+            top: 10px;
+            left: 48px;
+            transform-origin: bottom;
+            transition: transform 1s ease-in-out;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            padding: 10px;
+            //background: rgba(0, 0, 102, 0.9);
+            color:solid white;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="droplet-container"></div>
+
+    <div class="container">
+        <h1>💧 Water Footprint Calculator</h1>
+        <p>Calculate your daily water usage!</p>
+        
+        <label for="shower">🚿 Shower (minutes):</label>
+        <input type="number" id="shower" placeholder="Enter minutes" min="0">
+        
+        <label for="drinking">🥤 Drinking Water (liters):</label>
+        <input type="number" id="drinking" placeholder="Liters per day" min="0">
+        
+        <label for="cooking">🍳 Cooking (liters):</label>
+        <input type="number" id="cooking" placeholder="Liters per day" min="0">
+        
+        <label for="laundry">🛁 Laundry (liters):</label>
+        <input type="number" id="laundry" placeholder="Liters per load" min="0">
+        
+        <label for="flushing">🚽 Toilet Flushing (times):</label>
+        <input type="number" id="flushing" placeholder="Flushes per day" min="0">
+        
+        <button class="btn" onclick="calculateFootprint()">Calculate</button>
+        
+        <p id="result"></p>
+
+        <div class="clock-container">
+            <div class="clock-hand" id="clock-hand"></div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="waterChart"></canvas>
+        </div>
+    </div>
+
+    <div class="footer">
+        © SARIT SRIMANI
+    </div>
+
+    <script>
+        let chart;
+
+        function calculateFootprint() {
+            let shower = Math.max(0, document.getElementById("shower").value * 9);
+            let drinking = Math.max(0, document.getElementById("drinking").value * 1);
+            let cooking = Math.max(0, document.getElementById("cooking").value * 2);
+            let laundry = Math.max(0, document.getElementById("laundry").value * 50);
+            let flushing = Math.max(0, document.getElementById("flushing").value * 6);
+
+            let totalWater = shower + drinking + cooking + laundry + flushing;
+
+            document.getElementById("result").innerHTML = `Your Daily Water Footprint: <strong>${totalWater} liters</strong>`;
+
+            if (totalWater > 500) {
+                alert("⚠️ High Water Usage Detected! Try reducing consumption.");
+            }
+
+            let angle = (totalWater / 500) * 360;
+            document.getElementById("clock-hand").style.transform = `rotate(${angle}deg)`;
+
+            updateChart([shower, drinking, cooking, laundry, flushing]);
+        }
+
+        function updateChart(data) {
+            let ctx = document.getElementById("waterChart").getContext("2d");
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Shower", "Drinking", "Cooking", "Laundry", "Flushing"],
+                    datasets: [{
+                        label: "Water Usage (liters)",
+                        data: data,
+                        backgroundColor: ["#3498db", "#2ecc71", "#f1c40f", "#e74c3c", "#9b59b6"],
+                        borderColor: "#fff",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        function createDroplets() {
+            const container = document.querySelector(".droplet-container");
+            for (let i = 0; i < 20; i++) {
+                let droplet = document.createElement("div");
+                droplet.classList.add("droplet");
+                droplet.style.left = `${Math.random() * 100}vw`;
+                droplet.style.animationDuration = `${2 + Math.random() * 3}s`;
+                droplet.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(droplet);
+            }
+        }
+
+        createDroplets();
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Save Water</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0077cc;
+            color: #fff;
+            text-align: center;
+        }
+        .wave-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 150px;
+            background: url('https://www.transparenttextures.com/patterns/wavegrid.png');
+            opacity: 0.4;
+        }
+        .container {
+            max-width: 90%;
+            width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 100px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .dropdown {
+            text-align: left;
+            margin: 10px 0;
+        }
+        .dropdown button {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            color: black;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            p, button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wave-container">
+        <div class="wave"></div>
+    </div>
+    <div class="container">
+        <h1>How to Save Water</h1>
+        <p>Water conservation is crucial for a sustainable future. Click on each tip to learn more:</p>
+        
+        <div class="dropdown">
+            <button onclick="toggleDropdown('shortshowers')">🚿 Take Shorter Showers</button>
+            <div id="shortshowers" class="dropdown-content">Reducing shower time by just a few minutes can save gallons of water. Using water-efficient showerheads can also reduce consumption.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('fixleaks')">🔧 Fix Leaky Faucets</button>
+            <div id="fixleaks" class="dropdown-content">A small drip can waste up to 20 gallons of water per day. Regularly check and repair leaks in faucets, pipes, and toilets.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('rainwater')">🌧️ Collect Rainwater</button>
+            <div id="rainwater" class="dropdown-content">Using rain barrels can help collect and reuse rainwater for irrigation, reducing dependency on municipal water supplies.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('fullloads')">🧺 Run Full Loads</button>
+            <div id="fullloads" class="dropdown-content">Running dishwashers and washing machines only when full maximizes efficiency and minimizes water waste.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('waterplants')">🌱 Water Plants Wisely</button>
+            <div id="waterplants" class="dropdown-content">Water plants in the early morning or late evening to reduce evaporation. Drip irrigation systems can help minimize waste.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('usebucket')">🪣 Use a Bucket Instead of a Hose</button>
+            <div id="usebucket" class="dropdown-content">When washing your car or watering plants, using a bucket instead of a hose can save a significant amount of water.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('efficienttoilets')">🚽 Install Water-Efficient Toilets</button>
+            <div id="efficienttoilets" class="dropdown-content">Upgrading to low-flow or dual-flush toilets can reduce household water use by thousands of gallons per year.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('mindfulbrushing')">🦷 Turn Off the Tap While Brushing</button>
+            <div id="mindfulbrushing" class="dropdown-content">Leaving the tap running while brushing can waste up to 4 gallons of water per minute. Turn it off to conserve water.</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(id) {
+            let content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

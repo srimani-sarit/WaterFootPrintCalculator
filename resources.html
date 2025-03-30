@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDG 6 - Water Resources</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0077cc;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 90%;
+            width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .dropdown {
+            text-align: left;
+            margin: 10px 0;
+        }
+        .dropdown button {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            color: black;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            p, button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SDG 6 - Water Resources</h1>
+        <p>SDG 6 aims to ensure the availability and sustainable management of water and sanitation for all.</p>
+        <p>Click on each resource to learn more:</p>
+        
+        <div class="dropdown">
+            <button onclick="toggleDropdown('oceans')">🌊 Oceans and Seas</button>
+            <div id="oceans" class="dropdown-content">Oceans cover about 71% of Earth's surface and are the largest water resource, though they contain saltwater.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('rivers')">🏞️ Rivers and Streams</button>
+            <div id="rivers" class="dropdown-content">Rivers and streams provide freshwater for drinking, agriculture, and industry.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('glaciers')">🏔️ Glaciers and Ice Caps</button>
+            <div id="glaciers" class="dropdown-content">Glaciers and ice caps store the majority of the world's freshwater but are melting due to climate change.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('groundwater')">💧 Groundwater and Aquifers</button>
+            <div id="groundwater" class="dropdown-content">Groundwater is stored in aquifers underground and is a vital source of drinking water.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('wetlands')">🌿 Wetlands and Marshes</button>
+            <div id="wetlands" class="dropdown-content">Wetlands act as natural water filters and provide habitat for diverse species.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('atmosphere')">💨 Atmospheric Water</button>
+            <div id="atmosphere" class="dropdown-content">Water exists in the atmosphere as vapor and contributes to the water cycle through precipitation.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('lakes')">🚰 Freshwater Lakes and Reservoirs</button>
+            <div id="lakes" class="dropdown-content">Lakes and reservoirs store freshwater for human consumption and irrigation.</div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown('rainwater')">🌧️ Rainwater Harvesting</button>
+            <div id="rainwater" class="dropdown-content">Rainwater harvesting is a sustainable method of collecting and storing rain for later use.</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(id) {
+            let content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
