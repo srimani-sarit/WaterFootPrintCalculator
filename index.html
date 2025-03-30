@@ -550,8 +550,629 @@ body.menu-open .navbar {
         <div class="nav-links">
             <a href="#home">🏠 Home</a>
             <a href="about.html">ℹ️ About</a>
+            <a href="sdg_6.html>🌍 SDG 6</a>
+            <a href="<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://c0.wallpaperflare.com/preview/37/882/321/blurred-background-bubbles-close-up-droplets.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+
+        /* Footer Section */
+        .footer {
+            width: 100%;
+            background-color: #0077cc; /* Sky blue color */
+            color: white;
+            text-align: center;
+            padding: 2px 0;
+            position: fixed;
+            bottom: -12px;
+            left: 0;
+            font-size: 10px;
+            font-weight: bold
+        }
+
+        /* Ensure navbar doesn't overlap when menu opens */
+body.menu-open {
+    overflow: hidden; /* Prevent background scrolling */
+}
+
+.navbar {
+    transition: top 0.3s ease-in-out;
+}
+
+/* Shift navbar up when menu opens */
+body.menu-open .navbar {
+    top: -100px;
+}
+
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        .nav-title {
+            font-size: 30px;
+            font-weight: bolder;
+            color: rgb(112, 245, 227);
+            text-shadow: 2px 2px 4px rgba(9, 0, 0, 0.841);
+            text-decoration: dotted;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: rgb(2, 9, 136);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: aqua;
+            color: black;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .nav-title {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            .navbar a {
+                font-size: 18px;
+                padding: 8px;
+            }
+        }
+
+        /* Waves Section */
+        .wave-container {
+            position: relative;
+            width: 100%;
+            margin-top: 250px;
+            height: 45vh;
+            margin-bottom: -230px;
+            overflow: hidden;
+        }
+
+        .waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+        }
+
+        .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+        }
+
+        .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+        }
+
+        .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+        }
+
+        .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+        }
+
+        .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+        }
+
+        @keyframes move-forever {
+            0% {
+                transform: translate3d(-90px, 0, 0);
+            }
+            100% {
+                transform: translate3d(85px, 0, 0);
+            }
+        }
+
+        /* Responsive Wave Tweaks */
+        @media (max-width: 768px) {
+            .wave-container {
+                height: 30vh;
+                margin-top: 150px;
+                margin-bottom: -520px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+        .welcome-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(247, 0, 0);
+            z-index: 1;
+            margin-top: -50px;
+        }
+
+        .welcome-container h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-container p {
+            margin-top: 10px;
+            font-size: 20px;
+            margin: 10px 0 20px;
+            color: rgb(28, 7, 163);
+            font-weight: bolder;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background: #0077cc;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background: #005fa3;
+            transform: scale(1.1);
+        }
+
+
+
+
+
+
+        /* Responsive Welcome Section */
+@media (max-width: 768px) {
+    .welcome-container h1 {
+        font-size: 25px;
+    }
+
+    .welcome-container p {
+        font-size: 08px;
+    }
+
+    .button {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+}
+
+/* Better Mobile Adaptation for Waves */
+@media (max-width: 600px) {
+    .wave-container {
+        height: 20vh;
+        margin-top: 120px;
+        margin-bottom: -400px;
+    }
+}
+
+
+.hamburger {
+    display: none; /* Hide on desktop */
+}
+
+/* Show only on mobile */
+@media (max-width: 900px) {
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburger img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+
+.mobile-nav {
+    position: fixed;
+    top: 50;
+    left: -300px; /* Initially hidden */
+    width: 300px;
+    height: 50vh;
+    background: rgba(0, 0, 0, 0.75); /* Darker for better contrast */
+    backdrop-filter: blur(12px); /* Stronger blur */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.8); /* Deep shadow */
+    padding: 25px;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 999;
+}
+
+.mobile-nav {
+    left: -300px; /* Adjusted for smooth animation */
+}
+
+
+/* Mobile Nav Links */
+.mobile-nav a {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    padding: 12px;
+    display: block;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.mobile-nav a:hover {
+    background: rgba(0, 255, 255, 0.3); /* Softer hover effect */
+}
+
+/* Close Button */
+.close-btn {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+
+
+
+
+
+    </style>
+
+
+
+
+
+
+<script>
+    function openMenu() {
+        document.getElementById("mobileNav").style.left = "0";
+        document.querySelector(".nav-links").style.display = "none"; // Hide navbar links
+    }
+
+    function closeMenu() {
+        document.getElementById("mobileNav").style.left = "-300px";
+        document.querySelector(".nav-links").style.display = "flex"; // Show navbar links again
+    }
+</script>
+
+
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-title"> WATER FOOT-PRINT <br>CALCULATOR</div>
+        <div class="nav-links">
+            <a href="#home">🏠 Home</a>
+            <a href="about.html">ℹ️ About</a>
+            <a href="sdg_6.html">🌍 SDG 6</a>
+            <a href="calculator.html">🧮 Calculator</a>
+            <a href="resources.html">📚 Resources</a>
+            <a href="save.html">💧 How to Save Water</a>
+        </div>
+    </div>
+
+
+
+
+    
+    <!-- Welcome Message & Button -->
+    <div class="welcome-container">
+        <h1>💧 Welcome to the Water Footprint Calculator! 💧</h1>
+        <p>Discover your water consumption and take steps to save water for a sustainable future.</p>
+        <a href="calculator.html" class="button">Go to Calculator</a>
+    </div>
+
+
+
+
+    <!-- Waves Container -->
+<!-- Waves Container -->
+<div class="wave-container">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0, 174, 255, 0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 132, 255, 0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0, 102, 204, 0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#0077cc" />
+        </g>
+    </svg>
+</div>
+
+<!-- Hamburger Menu Icon -->
+<div class="hamburger" onclick="openMenu()">
+    <img src="https://cdn-icons-png.flaticon.com/512/8867/8867520.png" alt="Menu">
+</div>
+
+<!-- Mobile Nav Menu -->
+<div class="mobile-nav" id="mobileNav">
+    <span class="close-btn" onclick="closeMenu()">✖</span>
+    <a href="#home">🏠 Home</a>
+    <a href="about.html">ℹ️ About</a>
+    <a href="sdg_6.html">🌍 SDG 6</a>
+    <a href="calculator.html">🧮 Calculator</a>
+    <a href="resources.html">📚 Resources</a>
+    <a href="save.html">💧 How to Save Water</a>
+</div>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://c0.wallpaperflare.com/preview/37/882/321/blurred-background-bubbles-close-up-droplets.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-size: 27px;
+            font-weight: bolder;
+            color: rgb(112, 245, 227);
+            text-shadow: 2px 2px 4px rgba(9, 0, 0, 0.841);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: rgb(2, 9, 136);
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: aqua;
+            color: black;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger img {
+            width: 45px;
+            height: 45px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            font-size: xx-small;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s ease-in-out;
+            z-index: 999;
+        }
+
+        .mobile-nav a {
+            color: white;
+            font-size: 22px;
+            text-decoration: none;
+            padding: 12px;
+            display: block;
+            transition: 0.3s;
+            border-radius: 8px;
+            margin: 10px;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(0, 255, 255, 0.3);
+        }
+
+        .close-btn {
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav-title"> WATER FOOT-PRINT <br> CALCULATOR</div>
+        <div class="nav-links">
+            <a href="#home">🏠 Home</a>
+            <a href="about.html">ℹ️ About</a>
             <a href="sdg6.html>🌍 SDG 6</a>
             <a href="calculator.html">🧮 Calculator</a>
+            <a href="resources.html">📚 Resources</a>
+            <a href="save.html">💧 How to Save Water</a>
+        </div>
+        <div class="hamburger" onclick="openMenu()">
+            <img src="https://cdn-icons-png.flaticon.com/512/8867/8867520.png" alt="Menu">
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Water Footprint Calculator |SARIT SRIMANI| Save Water, Save Life
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <span class="close-btn" onclick="closeMenu()">✖</span>
+        <a href="#home" onclick="closeMenu()">🏠 Home</a>
+        <a href="about.html" onclick="closeMenu()">ℹ️ About</a>
+        <a href="sdg6.html" onclick="closeMenu()">🌍 SDG 6</a>
+        <a href="calculator.html" onclick="closeMenu()">🧮 Calculator</a>
+        <a href="resources.html" onclick="closeMenu()">📚 Resources</a>
+        <a href="save.html" onclick="closeMenu()">💧 How to Save Water</a>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById("mobileNav").style.left = "0";
+        }
+
+        function closeMenu() {
+            document.getElementById("mobileNav").style.left = "-100%";
+        }
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function(event) {
+            let menu = document.getElementById("mobileNav");
+            let hamburger = document.querySelector(".hamburger img");
+            if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+
+
+        function openMenu() {
+    document.getElementById("mobileNav").style.left = "0";
+    document.body.classList.add("menu-open"); // Hide navbar when menu opens
+}
+
+function closeMenu() {
+    document.getElementById("mobileNav").style.left = "-100%";
+    document.body.classList.remove("menu-open"); // Show navbar when menu closes
+}
+
+    </script>
+
+</body>
+</html>
+
+
+
+</body>
+</html>
+">🧮 Calculator</a>
             <a href="resources.html">📚 Resources</a>
             <a href="save.html">💧 How to Save Water</a>
         </div>
